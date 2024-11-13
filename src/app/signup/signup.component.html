@@ -1,0 +1,24 @@
+<section class="page-bg">
+    <div class="form-container">
+        <form action="" class="signup">
+            <div class="form-type">Sign Up</div>
+            <div class="error-area">
+                @if (!(errorMessage==='')) {
+                    <h5>{{errorMessage}}</h5>
+                }
+            </div>
+            <input type="text" placeholder="Enter name" [(ngModel)]="userData.name" required>
+            <input type="email" placeholder="Enter email" [(ngModel)]="userData.email" required>
+            <input type="password" placeholder="Enter password" [(ngModel)]="userData.password" required>
+            <input type="password" placeholder="Enter password again" [(ngModel)]="password2" required>
+            <div class="btn-container">
+                <button type="submit" class="register-btn">Register</button>
+            </div>
+
+            <div class="login-user">
+                <button class="to-login" (click)="toLogin()">Login</button>
+            </div>
+        </form>
+
+    </div>
+</section>
