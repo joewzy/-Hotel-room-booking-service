@@ -1,0 +1,21 @@
+<section class="page-bg">
+    <div class="form-container">
+        <form action="" class="login">
+            <div class="form-type">Login</div>
+            <div class="error-area">
+                @if (!(errorMessage==='')) {
+                    <h5>{{errorMessage}}</h5>
+                }
+
+            </div>
+            <input type="email" name="email" id="email_input" placeholder="Enter your email" [(ngModel)]="email" required>
+            <input type="password" name="password" id="password_input" placeholder="Password" [(ngModel)]="password" required>
+            <div class="btn-container">
+                <button type="submit" class="login-btn" (click)="onLogin()">Login</button>
+            </div>
+            <div class="registerUser">
+                <button class="register" (click)="toRegister()">Register User</button>
+            </div>
+        </form>
+    </div>
+</section>

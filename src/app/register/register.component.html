@@ -1,0 +1,27 @@
+<section class="page-bg">
+    <div class="form-container">
+        <form action="" class="register">
+            <div class="form-type">Registration</div>
+            <div class="error-area">
+                @if (!(errorMessage==='')) {
+                    <h5>{{errorMessage}}</h5>
+                }
+            </div>
+            <input type="text" name="name" id="name" placeholder="Enter username" [(ngModel)]="formData.name" required>
+            <input type="email" name="email" id="email" placeholder="Enter email" [(ngModel)]="formData.email"  required>
+            <input type="password" name="password" id="password" placeholder="Enter password" [(ngModel)]="formData.password" required>
+            <select name="userRole" id="" class="userRole"  [(ngModel)]="formData.userRole" >
+                <option value="">Select Role</option>
+                <option value="ADMIN">ADMIN</option>
+                <option value="CUSTOMER">CUSTOMER</option>
+            </select>
+
+            <div class="btn-container">
+                <button type="submit" class="register-btn" (click)="onRegister()">Register</button>
+            </div>
+            <div class="login-user">
+                <button class="to-login"  (click)="toLogin()">Login</button>
+            </div>
+        </form>
+    </div>
+</section>
