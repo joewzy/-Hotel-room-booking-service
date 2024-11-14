@@ -25,8 +25,44 @@ export class SignupComponent {
     private router:Router
   ){}
 
+  async onCreateUser(){
+    const isValidData = this.validUserData();
+
+    if(!isValidData){
+      return;
+    }
+
+    try {
+      const response = await this.userService.createUser(this.userData);
+
+      if(response.statusCode===201){
+        this.router.navigate(['/login'])
+      }
+      else{
+        this.showError(response.message)
+      }
+
+    } 
+    catch (error:any) {
+      this.showError(error.message)  
+    }
+  }
+
   toLogin(){
     this.router.navigate(['/login'])
+  }
+
+  validUserData(){
+    if(!this.userData.name || !this.userData.email || !this.userData.password){
+      this.showError("All fields are required");
+      return false;
+    }
+    if (!(this.userData.password===this.password2)) {
+      this.showError("Password deos not match, try again")
+      return false;
+    } else {
+      return true;
+    }
   }
 
 

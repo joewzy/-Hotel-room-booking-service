@@ -9,7 +9,7 @@ import { lastValueFrom } from 'rxjs';
 export class UsersService {
 
   // authentication base url
-  private AUTH_URL = "http://localhost:8081/v1/api/auth/"
+  private AUTH_URL = "http://localhost:8081/v1/api/auth"
   constructor(private http:HttpClient) {}
 
   async login(email:string,password:string):Promise<any>{
@@ -23,12 +23,23 @@ export class UsersService {
     }
   }
 
-  async register(userData:any):Promise<any>{
-    const registerUrl = `${this.AUTH_URL}/register`;
+  async createUser(userData:any):Promise<any>{
+    const registerUrl = `${this.AUTH_URL}/signup`;
     try {
       const response = await lastValueFrom(this.http.post<any>(registerUrl,userData));
       return response;
-      
+
+    } catch (error) {
+      throw error
+    }
+  }
+
+  async register(userData:any):Promise<any>{
+    const registerUrl = `${this.AUTH_URL}/signup`;
+    try {
+      const response = await lastValueFrom(this.http.post<any>(registerUrl,userData));
+      return response;
+
     } catch (error) {
       throw error
     }

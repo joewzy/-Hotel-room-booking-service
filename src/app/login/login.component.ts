@@ -29,7 +29,7 @@ export class LoginComponent {
       const response = await this.userService.login(this.email,this.password);
       if(response.statusCode===200){
         localStorage.setItem('token',response.token);
-        // localStorage.setItem('role',response.userRole);
+        localStorage.setItem('role',response.userRole);
       }
       else{
         this.showError(response.message);
