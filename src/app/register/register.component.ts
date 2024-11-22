@@ -31,6 +31,22 @@ export class RegisterComponent {
       this.showError("Please fill in all fields");
       return;
     }
+
+    try {
+      const token = localStorage.getItem('token');
+      if(!token){
+        throw new Error("Token not found");
+      }
+      const response = await this.userService.register(this.formData,token);
+      if (response.statusCode===201){
+        this.router.navigate(['/login'])
+      }
+      else{
+        this.showError(response.message);
+      }
+    } catch (error:any) {
+      this.showError(error.message)
+    }
   }
 
   toLogin(){

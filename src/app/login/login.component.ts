@@ -21,15 +21,18 @@ export class LoginComponent {
     private router:Router){}
 
   async onLogin(){
-    if (!this.email || this.password){
+    if (!this.email || !this.password){
       this.showError("Email and password required");
       return;
     }
     try {
       const response = await this.userService.login(this.email,this.password);
+      // console.log(response);
       if(response.statusCode===200){
         localStorage.setItem('token',response.token);
-        localStorage.setItem('role',response.userRole);
+        localStorage.setItem('userRole',response.userRole);
+        this.router.navigateByUrl('/home/navbar');
+        // console.log(response.message, localStorage.getItem('token'))
       }
       else{
         this.showError(response.message);
