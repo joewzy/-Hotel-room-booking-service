@@ -1,29 +1,39 @@
-<header class="nav-bar">
-    <div class="logo-area">
-        <img src="favicon.ico" alt="">
-        <h4>JSI</h4>
-    </div>
-    <div class="links">
-        <div class="list">
-            <ul>
-                @if (!isAuthenticated) {
-                    <li> <a routerLink="../../login">Home</a> </li>
-                }
-                @if (isAdmin) {
-                    <li> <a routerLink="/users">Rooms</a> </li>
-                    <li> <a routerLink="/profile">Reservations</a> </li>
-                }
+<div class="main">
 
-                @if (isCustomer) {
-                    <li> <a routerLink="/profile">Bookings</a> </li>
-                }
-                
-                @if (isAuthenticated) {
-                    <li> <a routerLink="" (click)="logout()">Log Out</a> </li>
-                }
-                
-            
-            </ul>
+    <header class="nav-bar">
+        <div class="logo-area">
+            <img src="favicon.ico" alt="">
+            <h4>JSI</h4>
         </div>
+        <div class="links">
+            <div class="list">
+                <ul>
+                    @if (isAuthenticated) {
+                        <li> <a routerLink="/login">Home</a> </li>
+                        <li> <a routerLink="/home/rooms">Rooms</a> </li>
+                    }
+                    @if (isAdmin) {
+                        <li> <a routerLink="/home/createroom">Add Room</a> </li>
+                        <li> <a routerLink="/home/updateroom">Update Room</a> </li>
+                        <li> <a routerLink="/profile">Reservations</a> </li>
+                    }
+    
+                    @if (isCustomer) {
+                        <li> <a routerLink="/profile">Bookings</a> </li>
+                    }
+                    
+                    @if (isAuthenticated) {
+                        <li> <a routerLink="" (click)="logout()">Log Out</a> </li>
+                    }
+                    
+                
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="pages">
+        <router-outlet></router-outlet>
     </div>
-</header>
+    
+    </div>
+    

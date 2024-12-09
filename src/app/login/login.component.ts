@@ -31,7 +31,13 @@ export class LoginComponent {
       if(response.statusCode===200){
         localStorage.setItem('token',response.token);
         localStorage.setItem('userRole',response.userRole);
-        this.router.navigateByUrl('/home/navbar');
+        const role = localStorage.getItem('userRole');
+        if(this.userService.isAdmin()){
+          this.router.navigateByUrl('/home/adminboard');
+        }
+        else if(this.userService.isCustomer()){
+          this.router.navigateByUrl('/home/rooms');
+        }
         // console.log(response.message, localStorage.getItem('token'))
       }
       else{
