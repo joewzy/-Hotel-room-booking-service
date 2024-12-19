@@ -1,1 +1,57 @@
-<p>rooms works!</p>
+<div class="container">
+    <div class="table-bg">
+        <div class="title">
+            <h2>Rooms List</h2>
+        </div>
+        <div class="error-area">
+
+            @if(!(errorMessage==='')){
+            <h5>{{errorMessage}}</h5>
+            }
+
+        </div>
+        <div class="btn-area">
+            <button routerLink="/home/createroom"  class="addroom-btn" type="button">Add Room</button>
+        </div>
+        <div class="table-area">
+            <table class="user-list">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Room Type</th>
+                        <th>Price</th>
+                        <th>Available</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                 
+                <tbody>
+                    @for(room of roomList; track room.id){
+                        <tr>
+                            <td>{{room.id}}</td>
+                            <td>{{room.name}}</td>
+                            <td>{{room.roomType}}</td>
+                            <td>{{room.price}}</td>
+                            <td>{{room.available}}</td>
+                            <td>
+                                <button class="delete-btn" (click)="deleteRoom(room.id)">Delete</button>
+                                <button class="update-btn" (click)="navigateToUpdate(room.id)">Edit</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+           
+
+        </div>
+        <div class="btn-area">
+            <button routerLink="/"  class="addroom-btn" type="button">Next</button>
+        </div>
+
+    </div>
+
+</div>
+

@@ -44,6 +44,23 @@ export class RoomService {
 
   }
 
+  async getRooms(token:string,pageNumber:string):Promise<any>{
+    const url =  `${this.ROOM_URL}/allrooms?pageNumber=${pageNumber}` ;
+    const headers = new HttpHeaders(
+      {'Authorization':`Bearer ${token}`}
+    );
+    console.log(url);
+    try {
+      const response = await lastValueFrom(this.http.get<any>(url,{headers}))
+      return response;
+
+    } catch (error) {
+      throw error;
+    }
+
+  }
+
+
   //fetch specific room
   async getRoom(token:string, roomid:string):Promise<any>{
     const url =  `${this.ROOM_URL}/getrooms/${roomid}` ;

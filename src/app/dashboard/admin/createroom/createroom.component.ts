@@ -40,14 +40,14 @@ export class CreateroomComponent {
     }
 
     try {
-      const token = localStorage.getItem('token');
+      const token = window.localStorage.getItem('token');
       if(!token){
         throw new Error('Token not found')
       }
 
       const response = await this.roomService.addRoom(token,this.roomData);
       if(response.statusCode===201){
-        this.router.navigateByUrl("/adminboard");
+        this.router.navigateByUrl("/home/adminboard");
       }
       else{
         this.showError(response.message)

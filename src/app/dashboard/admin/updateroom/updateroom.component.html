@@ -1,1 +1,33 @@
-<p>updateroom works!</p>
+<section class="page-bg">
+    <div class="form-container">
+        <form class="login" action="">
+            <div class="form-type">Add new Room</div>
+            <div class="error-area">
+
+                @if(!(errorMessage==='')){
+                <h5>{{errorMessage}}</h5>
+                }
+
+            </div>
+            <input type="text" name="name" id="name" placeholder="Room name" [(ngModel)]="roomDetails.name"  required>
+            <select name="roomType" id="" class="roomType" [(ngModel)]="roomDetails.roomType">
+                <option value="">Select RoomType</option>
+                <option value="STANDARD">STANDARD</option>
+                <option value="DELUXE">DELUXE</option>
+                <option value="SUITE">SUITE</option>
+                <option value="EXECUTIVE">EXECUTIVE</option>
+                <option value="FAMILY">FAMILY</option>
+            </select>
+            <input type="text" name="price" id="price" placeholder="Room Price" [(ngModel)]="roomDetails.price"  required>
+            <select name="available" id="" class="available" [(ngModel)]="roomDetails.available">
+                <option value="">Select Available</option>
+                <option value="TRUE">TRUE</option>
+                <option value="FALSE">FALSE</option>
+            </select>
+
+            <div class="btn-container">
+                <button type="submit" class="login-btn"  (click)="updateRoom()">Register</button>
+            </div>
+        </form>
+    </div>
+</section> 
