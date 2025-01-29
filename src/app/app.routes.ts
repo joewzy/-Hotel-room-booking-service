@@ -4,7 +4,8 @@ import { RegisterComponent } from './register/register.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './dashboard/home/home.component';
 import { AdminboardComponent } from './dashboard/admin/adminboard/adminboard.component';
-import { RoomsComponent } from './dashboard/customer/rooms/rooms.component';
+import { RoomsComponent } from './dashboard/admin/rooms/rooms.component';
+import { ViewroomsComponent } from './dashboard/customer/viewrooms/viewrooms.component';
 import { CreateroomComponent } from './dashboard/admin/createroom/createroom.component';
 import { UpdateroomComponent } from './dashboard/admin/updateroom/updateroom.component';
 
@@ -17,7 +18,8 @@ export const routes: Routes = [
        {path:'adminboard',component:AdminboardComponent},
        {path:'rooms',component:RoomsComponent},
        {path:'createroom',component:CreateroomComponent},
-       {path:'updateroom/:id',component:UpdateroomComponent}
+       {path:'updateroom/:id',component:UpdateroomComponent},
+       {path:'viewrooms',component:ViewroomsComponent}
     ]},
     {path:'',redirectTo:'/login',pathMatch:'full'},
 ];

@@ -10,15 +10,17 @@
                 <ul>
                     @if (isAuthenticated) {
                         <li> <a routerLink="/login">Home</a> </li>
-                        <li> <a routerLink="/home/rooms">Rooms</a> </li>
+                        
                     }
                     @if (isAdmin) {
+                        <li> <a routerLink="/home/rooms">Rooms</a> </li>
                         <li> <a routerLink="/home/createroom">Add Room</a> </li>
                         <li> <a routerLink="/home/updateroom">Update Room</a> </li>
                         <li> <a routerLink="/profile">Reservations</a> </li>
                     }
     
                     @if (isCustomer) {
+                        <li> <a routerLink="/home/viewrooms">Available Rooms</a> </li>
                         <li> <a routerLink="/profile">Bookings</a> </li>
                     }
                     

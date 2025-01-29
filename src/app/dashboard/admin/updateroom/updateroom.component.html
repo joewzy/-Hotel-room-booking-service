@@ -1,7 +1,7 @@
 <section class="page-bg">
     <div class="form-container">
         <form class="login" action="">
-            <div class="form-type">Add new Room</div>
+            <div class="form-type">Update Room</div>
             <div class="error-area">
 
                 @if(!(errorMessage==='')){
@@ -21,12 +21,12 @@
             <input type="text" name="price" id="price" placeholder="Room Price" [(ngModel)]="roomDetails.price"  required>
             <select name="available" id="" class="available" [(ngModel)]="roomDetails.available">
                 <option value="">Select Available</option>
-                <option value="TRUE">TRUE</option>
-                <option value="FALSE">FALSE</option>
+                <option value=true>TRUE</option>
+                <option value=false>FALSE</option>
             </select>
 
             <div class="btn-container">
-                <button type="submit" class="login-btn"  (click)="updateRoom()">Register</button>
+                <button type="submit" class="login-btn"  (click)="updateRoom()">Update</button>
             </div>
         </form>
     </div>

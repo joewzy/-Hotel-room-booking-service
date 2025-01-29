@@ -36,7 +36,7 @@ export class LoginComponent {
           this.router.navigateByUrl('/home/adminboard');
         }
         else if(this.userService.isCustomer()){
-          this.router.navigateByUrl('/home/rooms');
+          this.router.navigateByUrl('/home/viewrooms');
         }
         // console.log(response.message, localStorage.getItem('token'))
       }

@@ -49,7 +49,7 @@ export class RoomService {
     const headers = new HttpHeaders(
       {'Authorization':`Bearer ${token}`}
     );
-    console.log(url);
+    // console.log(url);
     try {
       const response = await lastValueFrom(this.http.get<any>(url,{headers}))
       return response;
@@ -97,7 +97,7 @@ export class RoomService {
   
   //delete room
   async deleteRoom(token:string, roomid:string):Promise<any>{
-    const url =  `${this.ROOM_URL}/getrooms/delete/${roomid}` ;
+    const url =  `${this.ROOM_URL}/delete/${roomid}` ;
     const headers = new HttpHeaders(
       {'Authorization':`Bearer ${token}`}
     );

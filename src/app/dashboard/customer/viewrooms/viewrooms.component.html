@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="table-bg">
+        <div class="title">
+            <h2>Available Rooms</h2>
+        </div>
+        <div class="error-area">
+
+            @if(!(errorMessage==='')){
+            <h5>{{errorMessage}}</h5>
+            }
+
+        </div>
+        <div class="btn-area">
+        </div>
+        <div class="table-area">
+            <table class="user-list">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Room Type</th>
+                        <th>Price</th>
+                        <th>Available</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                 
+                <tbody>
+                    @for(room of roomList; track room.id){
+                        <tr>
+                            <td>{{room.id}}</td>
+                            <td>{{room.name}}</td>
+                            <td>{{room.roomType}}</td>
+                            <td>{{room.price}}</td>
+                            <td>{{room.available}}</td>
+                            <td>
+                                <button class="book-btn" (click)="bookRoom()">Book</button>                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+           
+
+        </div>
+        <div class="btns-area">
+            @if (previous) {
+                <button (click)="getPrevPage()"  class="addroom-btn" type="button">Prev</button>
+            }
+            <button (click)="getNextPage()"  class="addroom-btn" type="button">Next</button>
+
+        </div>
+
+    </div>
+
+</div>
+

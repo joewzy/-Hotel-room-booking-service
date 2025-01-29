@@ -28,9 +28,9 @@ export class UpdateroomComponent {
 
   async getRoomById() {
     this.roomId =this.route.snapshot.paramMap.get('id');
-    const token = localStorage.getItem('token');
+    const token = window.localStorage.getItem('token');
 
-    if(!this.roomId|| !token){
+    if(!this.roomId || !token){
       this.showError("Room Id/Token required")
       return;
     }
@@ -40,6 +40,7 @@ export class UpdateroomComponent {
       this.roomDetails.roomType  = roomDetailsResponse.roomType;
       this.roomDetails.price = roomDetailsResponse.price;
       this.roomDetails.available = roomDetailsResponse.available;
+      console.log(this.roomDetails)
 
     } catch (error:any) {
       this.showError(error.message)
@@ -49,11 +50,11 @@ export class UpdateroomComponent {
 
   async updateRoom(){
     try{
-      const token = localStorage.getItem('token');
+      const token = window.localStorage.getItem('token');
       if(!token){
         throw new Error("Token not found");
       }
-      const response = await this.roomService.updateRoom(this.roomId,token,this.roomDetails);
+      const response = await this.roomService.updateRoom(token,this.roomId,this.roomDetails);
       if(response.statusCode===200){
         this.router.navigateByUrl("/rooms");
       }
